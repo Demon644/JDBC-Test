@@ -28,7 +28,6 @@ public class Main {
 		}
 //		deleteStudent(5);
 //		selectStudents();
-		joinTables(3);
 		
 		selectStudents();
 		
@@ -160,13 +159,4 @@ public class Main {
 		
 	}
 	
-	private static void joinTables(int r) throws SQLException {
-		String query = "alter table student add faculty_id;"
-				+ "select student.faculty_id, faculty.id from student where id = ? inner join faculty on faculty.id = student.faculty_id;";
-		PreparedStatement pstmt = conn.prepareStatement(query);
-		pstmt.setInt(1, r);
-//		pstmt.setInt(2, f);
-		pstmt.executeUpdate();
-		pstmt.close();
-	}
 }
